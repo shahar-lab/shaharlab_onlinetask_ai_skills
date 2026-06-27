@@ -1,0 +1,62 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(**)",
+      "Write(experiment/**)",
+      "Write(CLAUDE.md)",
+      "Edit(experiment/**)",
+      "Edit(CLAUDE.md)",
+      "Glob(**)",
+      "Grep(**)",
+      "Bash(npm install)",
+      "Bash(npm run build)",
+      "Bash(npm run dev)",
+      "Bash(npm run preview)",
+      "Bash(npm run lint)",
+      "Bash(npm test)",
+      "Bash(npx vite build)",
+      "Bash(node --version)",
+      "Bash(npm --version)",
+      "Bash(git status)",
+      "Bash(git diff)",
+      "Bash(git log *)",
+      "Bash(git add experiment/**)",
+      "Bash(git add CLAUDE.md)",
+      "Bash(git add .claude/**)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(git fetch *)",
+      "Bash(git checkout *)",
+      "Bash(git branch *)",
+      "Bash(ls *)",
+      "Bash(find experiment -type f)",
+      "Bash(cat experiment/**)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(git push --force *)",
+      "Bash(git reset --hard *)",
+      "Bash(git clean -f *)",
+      "Bash(curl * | bash)",
+      "Bash(wget * | bash)"
+    ]
+  },
+  "env": {
+    "JSPSYCH_VERSION": "7",
+    "EXPERIMENT_ROOT": "experiment",
+    "PAVLOVIA_SERVER": "https://pavlovia.org"
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd /home/user/shaharlab_onlinetask_ai_skills && [ -f experiment/package.json ] && npm run lint --prefix experiment 2>/dev/null || true"
+          }
+        ]
+      }
+    ]
+  }
+}
