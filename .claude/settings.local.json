@@ -1,7 +1,6 @@
 {
   "permissions": {
     "allow": [
-      "Bash(rm \"D:/OneDrive - Tel-Aviv University/gitlab projects/shaharlab_onlinetask_ai_skills/.claude/agents/scaffolding_expert.md\" \"D:/OneDrive - Tel-Aviv University/gitlab projects/shaharlab_onlinetask_ai_skills/.claude/agents/planning_team/creator.md\" \"D:/OneDrive - Tel-Aviv University/gitlab projects/shaharlab_onlinetask_ai_skills/.claude/agents/planning_team/reviewer.md\" \"D:/OneDrive - Tel-Aviv University/gitlab projects/shaharlab_onlinetask_ai_skills/.claude/agents/jspsych_team/developer.md\" \"D:/OneDrive - Tel-Aviv University/gitlab projects/shaharlab_onlinetask_ai_skills/.claude/agents/jspsych_team/editor.md\" \"D:/OneDrive - Tel-Aviv University/gitlab projects/shaharlab_onlinetask_ai_skills/.claude/agents/pavlovia_team/architect.md\" \"D:/OneDrive - Tel-Aviv University/gitlab projects/shaharlab_onlinetask_ai_skills/.claude/agents/pavlovia_team/reviewer.md\")",
       "Bash(python -m http.server 7821 --bind 127.0.0.1)",
       "mcp__playwright__browser_take_screenshot",
       "mcp__playwright__browser_snapshot",
@@ -37,12 +36,13 @@
       "WebFetch(domain:www.jspsych.org)",
       "WebFetch(domain:unpkg.com)",
       "Bash(git status *)",
-      "Bash(find . -maxdepth 2 -iname \"index.html\" -o -maxdepth 2 -iname \"preview.html\")"
+      "Bash(find . -maxdepth 2 -iname \"index.html\" -o -maxdepth 2 -iname \"preview.html\")",
+      "Bash(echo \"---exit $?\")",
+      "Bash(git checkout *)"
     ],
     "additionalDirectories": [
       "d:\\OneDrive - Tel-Aviv University\\gitlab projects\\phq9_pairwise\\.claude\\skills",
-      "d:\\OneDrive - Tel-Aviv University\\gitlab projects\\phq9_pairwise\\.claude\\skills\\jspsych-instructions-generator",
-      "C:\\Users\\lihina\\OneDrive - Tel-Aviv University\\Documents\\gitlab\\phq9_pairwise\\.claude\\skills"
+      "d:\\OneDrive - Tel-Aviv University\\gitlab projects\\phq9_pairwise\\.claude\\skills\\jspsych-instructions-generator"
     ]
   },
   "hooks": {

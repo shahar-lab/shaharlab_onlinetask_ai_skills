@@ -10,15 +10,14 @@ Start a full end-to-end experiment build from a researcher description.
 
 ## What this command does
 
-Invokes the **tzadok** orchestrator agent with the researcher's description and runs the full pipeline:
+Invokes the **tzadok** orchestrator agent, which runs the full new-build pipeline:
 
-1. `planning_team/creator` — generates `EXPERIMENT_SPEC.md`
-2. `planning_team/reviewer` — approves or requests revisions to the spec
-3. `jspsych_team/developer` — implements the jsPsych experiment
-4. `jspsych_team/editor` — polishes and debugs the code
-5. `scaffolding_expert` — audits structure, paths, and code quality
-6. `pavlovia_team/architect` — adds Pavlovia wiring and CI config
-7. `pavlovia_team/reviewer` — audits deployment configuration
+1. `planning_interviewer_galit` — interviews the researcher → `Plan/INTERVIEW_NOTES.md`
+2. `planning_architect_miri` — writes `Plan/EXPERIMENT_BLUEPRINT.md` + `Plan/EXPERIMENT_BLUEPRINT_AGENT_CONTEXT.md`
+3. `planning_reviewer_devorah` — APPROVE or REVISE (loops back to Miri)
+4. `jspsych_architect_dan` — builds the jsPsych codebase in `experiment/` (with `IS_PREVIEW` stub)
+5. `jspsych_reviewer_ezra` — APPROVE or REVISE (loops back to Dan)
+6. `pavlovia_architect_maya` — Pavlovia wiring, `index.html`, `preview.html`, `PAVLOVIA_SETUP.md`, then self-audit
 
 ## Prompt sent to tzadok
 
@@ -28,14 +27,14 @@ You are Tzadok, the experiment builder orchestrator. A researcher has submitted 
 $ARGUMENTS
 ---
 
-Run the full pipeline:
-1. Delegate to `planning_team/creator` to produce `EXPERIMENT_SPEC.md`.
-2. Delegate to `planning_team/reviewer` to review the spec. If REVISE, loop back to creator with the feedback.
-3. Once the spec is APPROVED, delegate to `jspsych_team/developer` to implement the experiment.
-4. Delegate to `jspsych_team/editor` for a polish pass.
-5. Delegate to `scaffolding_expert` for a quality audit. If FAIL, delegate back to editor with the blocking findings.
-6. Once the scaffolding audit PASSes, delegate to `pavlovia_team/architect` to add Pavlovia wiring.
-7. Delegate to `pavlovia_team/reviewer` to audit the deployment config. If REVISE, delegate back to architect.
-8. Report the final build status to the researcher using the standard status format.
+Run the "new experiment build" pipeline defined in your agent definition:
+
+1. Delegate to `planning_interviewer_galit` to interview the researcher and produce `Plan/INTERVIEW_NOTES.md`. Galit's questions must reach the researcher — relay them and wait for answers.
+2. Delegate to `planning_architect_miri` to produce `Plan/EXPERIMENT_BLUEPRINT.md` and `Plan/EXPERIMENT_BLUEPRINT_AGENT_CONTEXT.md`.
+3. Delegate to `planning_reviewer_devorah` to review the blueprint. If REVISE, loop back to Miri with the feedback.
+4. Once APPROVED, delegate to `jspsych_architect_dan` to implement the experiment under `experiment/`.
+5. Delegate to `jspsych_reviewer_ezra` for code review. If REVISE, loop back to Dan with the blocking findings.
+6. Once APPROVED, delegate to `pavlovia_architect_maya` for Pavlovia wiring and self-audit. If BROKEN, Maya fixes and re-audits.
+7. Update `Plan/PIPELINE_STATE.md` after each gate and report the final status to the researcher using your standard status format.
 
 At each stage, show the stage name and verdict before proceeding to the next stage.

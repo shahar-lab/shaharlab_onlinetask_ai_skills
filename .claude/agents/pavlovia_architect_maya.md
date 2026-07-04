@@ -24,27 +24,7 @@ Raise any ambiguities with Tzadok before proceeding.
 
 ## Phase 1: Complete the Pavlovia wiring
 
-Replace Dan's `null` stubs in `main.js` with the real Pavlovia trials:
-
-```js
-import pavlovia from '@jspsych/plugin-pavlovia';
-
-const IS_PREVIEW = window.__PAVLOVIA_PREVIEW__ === true;
-
-const pavloviaInit = IS_PREVIEW
-  ? { type: jsPsychHtmlKeyboardResponse, stimulus: '', trial_duration: 0 }
-  : { type: pavlovia, pavloviaServer: 'https://pavlovia.org' };
-
-const pavloviaFinish = IS_PREVIEW
-  ? { type: jsPsychHtmlKeyboardResponse, stimulus: '<p>Preview complete.</p>', choices: [' '] }
-  : { type: pavlovia, command: 'finish' };
-```
-
-Rules:
-- `pavloviaInit` is the FIRST trial in the timeline — always.
-- `pavloviaFinish` is the LAST trial in the timeline — always.
-- `localSave` fires only inside the `IS_PREVIEW` guard — never in production.
-- Never remove the `IS_PREVIEW` guard.
+Read `docs/contracts/IS_PREVIEW.md` — the single source of truth for this contract, shared with Dan. Replace Dan's `null` stubs in `main.js` with **Maya's completed version** exactly as written there, and obey every invariant listed in the contract.
 
 ---
 
@@ -52,10 +32,7 @@ Rules:
 
 **`index.html`** — Pavlovia-ready entry point at repository root. No inline JS logic; loads `main.js` as a module.
 
-**`preview.html`** — local-only entry point at repository root:
-- Sets `window.__PAVLOVIA_PREVIEW__ = true` before loading `main.js`.
-- Shows banner: **⚠️ LOCAL PREVIEW — data will not be saved to Pavlovia**.
-- Triggers `jsPsych.data.get().localSave('csv', 'preview_data.csv')` at experiment end.
+**`preview.html`** — local-only entry point at repository root, built per `docs/contracts/IS_PREVIEW.md`.
 
 Keep `preview.html` functional after every change you make.
 

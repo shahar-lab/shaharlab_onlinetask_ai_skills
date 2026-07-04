@@ -2,12 +2,19 @@
   "permissions": {
     "allow": [
       "Read(**)",
-      "Write(experiment/**)",
-      "Write(CLAUDE.md)",
-      "Edit(experiment/**)",
-      "Edit(CLAUDE.md)",
       "Glob(**)",
       "Grep(**)",
+      "Write(experiment/**)",
+      "Write(Plan/**)",
+      "Write(manuscript_snippets/**)",
+      "Write(CLAUDE.md)",
+      "Edit(experiment/**)",
+      "Edit(Plan/**)",
+      "Edit(manuscript_snippets/**)",
+      "Edit(CLAUDE.md)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_snapshot",
+      "mcp__playwright__browser_take_screenshot",
       "Bash(npm install)",
       "Bash(npm run build)",
       "Bash(npm run dev)",
@@ -17,10 +24,12 @@
       "Bash(npx vite build)",
       "Bash(node --version)",
       "Bash(npm --version)",
+      "Bash(python -m http.server *)",
       "Bash(git status)",
       "Bash(git diff)",
       "Bash(git log *)",
       "Bash(git add experiment/**)",
+      "Bash(git add Plan/**)",
       "Bash(git add CLAUDE.md)",
       "Bash(git add .claude/**)",
       "Bash(git commit *)",
@@ -28,9 +37,7 @@
       "Bash(git fetch *)",
       "Bash(git checkout *)",
       "Bash(git branch *)",
-      "Bash(ls *)",
-      "Bash(find experiment -type f)",
-      "Bash(cat experiment/**)"
+      "Bash(ls *)"
     ],
     "deny": [
       "Bash(rm -rf *)",
@@ -49,11 +56,11 @@
   "hooks": {
     "PostToolUse": [
       {
-        "matcher": "Write|Edit",
+        "matcher": "Edit|Write",
         "hooks": [
           {
             "type": "command",
-            "command": "cd /home/user/shaharlab_onlinetask_ai_skills && [ -f experiment/package.json ] && npm run lint --prefix experiment 2>/dev/null || true"
+            "command": "node -e \"const f = process.env.CLAUDE_TOOL_INPUT_FILE_PATH || ''; if (/experiment[\\\\/](src[\\\\/].*\\.(js|html)|index\\.html|preview\\.html)$/.test(f)) { console.log('[Pipeline] Experiment source file edited: ' + f + '. Tzadok: check whether planning_architect_miri should update Plan/EXPERIMENT_BLUEPRINT.md and whether pavlovia_architect_maya should run a snippet check.'); }\""
           }
         ]
       }

@@ -10,39 +10,41 @@ Show the current experiment build stage and what remains.
 
 ## What this command does
 
-Inspects the `experiment/` directory for artifact files produced by each pipeline stage and reports which stages are complete, which is current, and what is still pending.
+Reads `Plan/PIPELINE_STATE.md` (maintained by Tzadok) if it exists, then verifies it against the artifact files each stage actually produces. Reports which stages are complete, which is current, and what to do next.
 
 ## Prompt
 
-Inspect the `experiment/` directory (or repository root if `experiment/` does not exist yet) and determine the current pipeline stage by checking for the presence of these artifact files:
+First, if `Plan/PIPELINE_STATE.md` exists, read it — it is Tzadok's authoritative stage record. Then verify against the artifacts below (artifacts win if they disagree, and note the discrepancy):
 
 | Stage | Artifact | Agent |
 |-------|----------|-------|
-| Planning — Created | `EXPERIMENT_SPEC.md` | planning_team/creator |
-| Planning — Reviewed | `EXPERIMENT_SPEC.md` contains `## Verdict: APPROVE` | planning_team/reviewer |
-| Development — Done | `src/main.js` exists | jspsych_team/developer |
-| Editing — Done | `IMPLEMENTATION_NOTES.md` exists | jspsych_team/editor |
-| Scaffolding — Passed | `IMPLEMENTATION_NOTES.md` contains `Scaffolding: PASS` OR no BLOCKING findings in last audit | scaffolding_expert |
-| Pavlovia — Wired | `PAVLOVIA_SETUP.md` exists and `@jspsych/plugin-pavlovia` in `package.json` | pavlovia_team/architect |
-| Pavlovia — Approved | `PAVLOVIA_SETUP.md` contains `## Verdict: APPROVE` | pavlovia_team/reviewer |
+| Interview done | `Plan/INTERVIEW_NOTES.md` exists | planning_interviewer_galit |
+| Blueprint written | `Plan/EXPERIMENT_BLUEPRINT.md` + `Plan/EXPERIMENT_BLUEPRINT_AGENT_CONTEXT.md` exist | planning_architect_miri |
+| Blueprint approved | `Plan/PIPELINE_STATE.md` records Devorah `APPROVE` (or latest Devorah review says `## Verdict: APPROVE`) | planning_reviewer_devorah |
+| Code built | `experiment/src/main.js` and `experiment/preview.html` exist; `experiment/ARCHITECTURE_NOTES.md` exists | jspsych_architect_dan |
+| Code approved | `Plan/PIPELINE_STATE.md` records Ezra `APPROVE` | jspsych_reviewer_ezra |
+| Pavlovia wired | `experiment/PAVLOVIA_SETUP.md` exists and `@jspsych/plugin-pavlovia` in `experiment/package.json` | pavlovia_architect_maya |
+| Pavlovia checked | `Plan/PIPELINE_STATE.md` records `PAVLOVIA OK` | pavlovia_architect_maya |
 
 Report using this format:
 
 ```
 ## Experiment Build Pipeline Status
 
-**Experiment:** <title from EXPERIMENT_SPEC.md, or "Unknown">
+**Experiment:** <title from Plan/EXPERIMENT_BLUEPRINT.md, or "Unknown">
 
 | Stage | Status |
 |-------|--------|
-| Planning: Created    | ✓ Done / ⏳ Pending |
-| Planning: Reviewed   | ✓ Done / ⏳ Pending |
-| Development          | ✓ Done / ⏳ Pending |
-| Editing              | ✓ Done / ⏳ Pending |
-| Scaffolding audit    | ✓ Done / ⏳ Pending |
-| Pavlovia: Wired      | ✓ Done / ⏳ Pending |
-| Pavlovia: Reviewed   | ✓ Done / ⏳ Pending |
+| Interview            | ✓ Done / ⏳ Pending |
+| Blueprint written    | ✓ Done / ⏳ Pending |
+| Blueprint approved   | ✓ Done / ⏳ Pending |
+| Code built           | ✓ Done / ⏳ Pending |
+| Code approved        | ✓ Done / ⏳ Pending |
+| Pavlovia wired       | ✓ Done / ⏳ Pending |
+| Pavlovia checked     | ✓ Done / ⏳ Pending |
 
 **Current stage:** <first pending stage>
 **Next action:** <what needs to happen next, and which command or agent to use>
 ```
+
+If nothing exists yet, say the pipeline has not started and point the researcher to `/build-experiment`.

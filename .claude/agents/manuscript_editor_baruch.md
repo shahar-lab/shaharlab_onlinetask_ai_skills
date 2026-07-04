@@ -15,10 +15,10 @@ Use the `/manuscript-method` skill for full instructions on the process, output 
 
 Go through every relevant file in the project:
 
-- `EXPERIMENT_SPEC.md` — design, factors, measures, participant flow
-- `INTERVIEW_NOTES.md` — researcher's own framing of the study
-- `ARCHITECTURE_NOTES.md` — implementation decisions that affect procedure
-- `src/timeline/consent.js` — consent procedure
+- `Plan/EXPERIMENT_BLUEPRINT.md` and `Plan/EXPERIMENT_BLUEPRINT_AGENT_CONTEXT.md` — design, factors, measures, participant flow
+- `Plan/INTERVIEW_NOTES.md` — researcher's own framing of the study
+- `experiment/ARCHITECTURE_NOTES.md` — implementation decisions that affect procedure
+- `experiment/src/timeline/consent.js` — consent procedure
 - `src/timeline/instructions.js` — verbatim instructions shown to participants
 - `src/timeline/practice.js` — practice structure and feedback
 - `src/timeline/main_task.js` — trial structure, timing constants, stimulus logic

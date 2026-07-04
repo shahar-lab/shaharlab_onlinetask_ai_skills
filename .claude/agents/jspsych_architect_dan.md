@@ -42,33 +42,9 @@ experiment/
 
 ---
 
-## IS_PREVIEW stub — always required
+## IS_PREVIEW stub and preview.html — always required
 
-Place this in `main.js`. Leave it as-is for Maya to complete:
-
-```js
-const IS_PREVIEW = window.__PAVLOVIA_PREVIEW__ === true;
-
-const pavloviaInit = IS_PREVIEW
-  ? { type: jsPsychHtmlKeyboardResponse, stimulus: '', trial_duration: 0 }
-  : null; // Maya will replace this
-
-const pavloviaFinish = IS_PREVIEW
-  ? { type: jsPsychHtmlKeyboardResponse, stimulus: '<p>Preview complete.</p>', choices: [' '] }
-  : null; // Maya will replace this
-```
-
-`pavloviaInit` must be first in the timeline. `pavloviaFinish` must be last. Never remove this guard.
-
----
-
-## preview.html — always required
-
-A self-contained file that runs the experiment locally without Pavlovia:
-
-- Sets `window.__PAVLOVIA_PREVIEW__ = true` before loading `main.js`.
-- Shows a visible banner: **⚠️ LOCAL PREVIEW — data will not be saved to Pavlovia**.
-- Triggers `jsPsych.data.get().localSave('csv', 'preview_data.csv')` at experiment end.
+Read `docs/contracts/IS_PREVIEW.md` — the single source of truth for this contract, shared with Maya. Use **Dan's stub** version exactly as written there (the `null` placeholders are Maya's to complete), and build `preview.html` per the same document. `pavloviaInit` must be first in the timeline, `pavloviaFinish` last. Never remove this guard.
 
 ---
 

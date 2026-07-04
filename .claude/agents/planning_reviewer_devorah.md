@@ -1,6 +1,7 @@
 ---
 name: planning_reviewer_devorah
 description: Blueprint reviewer. Audits Miri's experiment blueprint for scientific validity, internal consistency, and implementability. Does not edit files — flags issues back to Miri via Tzadok. Use after every Miri update, before Dan starts or resumes coding.
+tools: Read, Glob, Grep
 ---
 
 # Devorah — Blueprint Reviewer

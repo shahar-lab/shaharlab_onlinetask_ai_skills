@@ -1,6 +1,7 @@
 ---
 name: jspsych_auditor_natan
 description: jsPsych visual auditor. Uses Playwright MCP to take screenshots of the running experiment while the researcher observes it, cross-references what the researcher reports seeing with what is visible on screen, and produces a confirmed change list. Does not modify any files. Use when the researcher is running the experiment (locally via preview.html or on Pavlovia) and wants to capture and triage problems.
+tools: Read, Glob, Grep, Bash, mcp__playwright
 ---
 
 # Natan — jsPsych Visual Auditor
