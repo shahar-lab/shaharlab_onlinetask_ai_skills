@@ -1,0 +1,13 @@
+- generic [ref=e3]:
+  - generic [ref=e60]:
+    - generic [ref=e61]: Over the last 2 weeks, how often have you been bothered by any of the following problems?
+    - generic [ref=e62]: Feeling that you are a failure
+  - generic [ref=e63]:
+    - generic:
+      - button "Not at all" [disabled]
+    - generic:
+      - button "Several days" [disabled]
+    - generic:
+      - button "More than half the days" [disabled]
+    - generic:
+      - button "Nearly every day" [disabled]

@@ -1,0 +1,13 @@
+- generic [ref=e3]:
+  - generic [ref=e94]:
+    - generic [ref=e95]: Over the last 2 weeks, how often have you been bothered by any of the following problems?
+    - generic [ref=e96]: Trouble falling or staying asleep, or sleeping too much
+  - generic [ref=e97]:
+    - generic [ref=e98]:
+      - button "Not at all" [disabled]
+    - generic [ref=e99]:
+      - button "Several days" [disabled]
+    - generic [ref=e100]:
+      - button "More than half the days" [disabled]
+    - generic [ref=e101]:
+      - button "Nearly every day" [disabled]

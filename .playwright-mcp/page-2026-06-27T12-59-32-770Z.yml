@@ -1,0 +1,7 @@
+- generic [ref=e3]:
+  - generic [ref=e34]:
+    - heading "About these questions" [level=1] [ref=e35]
+    - paragraph [ref=e36]:
+      - strong [ref=e37]: There's no rush.
+      - text: This is a short study. Take your time.
+  - button "Continue" [ref=e40] [cursor=pointer]

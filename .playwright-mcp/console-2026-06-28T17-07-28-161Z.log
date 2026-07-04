@@ -1,0 +1,2 @@
+[     207ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://unpkg.com/jspsych@7.3.4/jspsych.js:0
+[     291ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://unpkg.com/favicon.ico:0

@@ -1,0 +1,12 @@
+- generic [ref=e3]:
+  - generic [ref=e36]:
+    - heading "About these questions" [level=1] [ref=e37]
+    - paragraph [ref=e38]:
+      - text: We will ask you a few questions. Please answer as
+      - strong [ref=e39]: truthfully
+      - text: as you can.
+    - paragraph [ref=e40]:
+      - strong [ref=e41]: There's no rush.
+      - text: This is a short study. Take your time.
+    - paragraph [ref=e42]: Some questions may look familiar.
+  - button "Continue" [ref=e45] [cursor=pointer]

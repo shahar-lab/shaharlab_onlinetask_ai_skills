@@ -1,0 +1,8 @@
+- generic [ref=e5]:
+  - heading "Welcome" [level=1] [ref=e6]
+  - paragraph [ref=e7]: Thank you for taking part. In this study we will ask you to answer a few short questions about your everyday life.
+  - paragraph [ref=e8]:
+    - text: It should take roughly
+    - strong [ref=e9]: 5 minutes
+    - text: .
+  - paragraph [ref=e10]: Press the spacebar (or Enter) to continue.

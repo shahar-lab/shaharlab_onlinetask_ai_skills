@@ -1,0 +1,6 @@
+- generic [ref=e3]:
+  - generic [ref=e110]: Which of these two problems has been bothering you more during the last two weeks?
+  - generic [ref=e111]:
+    - button "Trouble falling or staying asleep, or sleeping too much" [ref=e113] [cursor=pointer]
+    - button "Moving or speaking so slowly that other people could have noticed" [ref=e115] [cursor=pointer]
+    - button "They feel extremely similar to me." [ref=e117] [cursor=pointer]
