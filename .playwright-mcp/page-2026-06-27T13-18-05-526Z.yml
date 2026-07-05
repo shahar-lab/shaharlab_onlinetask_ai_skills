@@ -1,8 +1,0 @@
-- generic [ref=e3]:
-  - generic [ref=e40]: Which of these two problems has been bothering you more during the last two weeks?
-  - generic [ref=e41]:
-    - button "Little interest or pleasure in doing things" [ref=e43] [cursor=pointer]
-    - generic [ref=e44]:
-      - text: OR
-      - button "Feeling tired or having little energy" [ref=e45] [cursor=pointer]
-    - button "They feel extremely similar to me." [ref=e47] [cursor=pointer]

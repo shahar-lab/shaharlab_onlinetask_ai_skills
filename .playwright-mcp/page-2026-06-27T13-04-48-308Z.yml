@@ -1,5 +1,0 @@
-- generic [ref=e68]:
-  - heading "Let's start" [level=1] [ref=e69]
-  - paragraph [ref=e70]: We're about to begin. Good luck!
-  - paragraph [ref=e71]:
-    - strong [ref=e72]: Press the spacebar to begin.

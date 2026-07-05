@@ -1,8 +1,0 @@
-- generic [ref=e3]:
-  - generic [ref=e40]: Which of these two problems has been bothering you more during the last two weeks?
-  - generic [ref=e41]:
-    - button "Feeling that you have let yourself or your family down" [ref=e45] [cursor=pointer]
-    - generic [ref=e43]:
-      - text: OR
-      - button "Feeling bad about yourself or that you are a failure or have let yourself or your family down" [ref=e46] [cursor=pointer]
-    - button "They feel extremely similar to me." [ref=e47] [cursor=pointer]

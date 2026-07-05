@@ -1,7 +1,0 @@
-- generic [ref=e3]:
-  - generic [ref=e59]:
-    - heading "A couple of things to note" [level=1] [ref=e60]
-    - list [ref=e61]:
-      - listitem [ref=e62]: You should use your mouse cursor to select your option.
-      - listitem [ref=e63]: There is a slight delay from the moment an item appears to the moment you can take action. This is to help you concentrate and read things through. Please be patient and make sure to engage fully in the questions.
-  - button "Continue" [ref=e66] [cursor=pointer]

@@ -1,5 +1,0 @@
-- generic [ref=e3]:
-  - generic [ref=e49]:
-    - heading "About these questions" [level=1] [ref=e50]
-    - paragraph [ref=e51]: This is completely anonymous.
-  - button "Continue" [ref=e54] [cursor=pointer]

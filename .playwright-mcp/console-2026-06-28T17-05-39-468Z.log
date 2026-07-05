@@ -1,5 +1,0 @@
-[     567ms] ReferenceError: jsPsychModule is not defined
-    at http://127.0.0.1:7821/src/plugins/shahar-instructions.js:274:4
-[     571ms] ReferenceError: initJsPsych is not defined
-    at http://127.0.0.1:7821/test-shahar-instructions.html:33:21
-[     576ms] [ERROR] Failed to load resource: the server responded with a status of 404 (File not found) @ http://127.0.0.1:7821/favicon.ico:0

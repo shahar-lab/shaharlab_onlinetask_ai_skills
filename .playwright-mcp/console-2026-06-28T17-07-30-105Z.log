@@ -1,2 +1,0 @@
-[      99ms] ReferenceError: initJsPsych is not defined
-    at http://127.0.0.1:7821/test-shahar-instructions.html:18:19
