@@ -22,19 +22,24 @@ const pavloviaFinish = IS_PREVIEW
 
 ## Maya's completed version (Pavlovia wired)
 
-```js
-import pavlovia from '@jspsych/plugin-pavlovia';
+`index.html` loads the lab's plugin file (`jspsych-7-pavlovia-2021.12.js`, from the
+`shaharlab-jspsych-pavlovia-link` skill's assets) via a `<script>` tag before `main.js`,
+which exposes the global `jsPsychPavlovia`:
 
+```js
 const IS_PREVIEW = window.__PAVLOVIA_PREVIEW__ === true;
 
 const pavloviaInit = IS_PREVIEW
   ? { type: jsPsychHtmlKeyboardResponse, stimulus: '', trial_duration: 0 }
-  : { type: pavlovia, pavloviaServer: 'https://pavlovia.org' };
+  : { type: jsPsychPavlovia, command: 'init' };
 
 const pavloviaFinish = IS_PREVIEW
   ? { type: jsPsychHtmlKeyboardResponse, stimulus: '<p>Preview complete.</p>', choices: [' '] }
-  : { type: pavlovia, command: 'finish' };
+  : { type: jsPsychPavlovia, command: 'finish', participantId: subject_id };
 ```
+
+For Prolific studies, the finish trial carries the redirect block from the
+`shaharlab-jspsych-pavlovia-link` skill (`assets/prolific_finish_snippet.js`).
 
 ## Invariants (both agents, always)
 

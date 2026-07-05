@@ -23,7 +23,7 @@ First, if `Plan/PIPELINE_STATE.md` exists, read it — it is Tzadok's authoritat
 | Blueprint approved | `Plan/PIPELINE_STATE.md` records Devorah `APPROVE` (or latest Devorah review says `## Verdict: APPROVE`) | planning_reviewer_devorah |
 | Code built | `experiment/src/main.js` and `experiment/preview.html` exist; `experiment/ARCHITECTURE_NOTES.md` exists | jspsych_architect_dan |
 | Code approved | `Plan/PIPELINE_STATE.md` records Ezra `APPROVE` | jspsych_reviewer_ezra |
-| Pavlovia wired | `experiment/PAVLOVIA_SETUP.md` exists and `@jspsych/plugin-pavlovia` in `experiment/package.json` | pavlovia_architect_maya |
+| Pavlovia wired | `experiment/PAVLOVIA_SETUP.md` exists and `jspsych-7-pavlovia-2021.12.js` present in `experiment/` | pavlovia_architect_maya |
 | Pavlovia checked | `Plan/PIPELINE_STATE.md` records `PAVLOVIA OK` | pavlovia_architect_maya |
 
 Report using this format:

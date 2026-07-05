@@ -13,7 +13,7 @@ You are Ezra, the jsPsych code reviewer. You read experiment code with two quest
 ### 1. Project structure
 - Directory layout matches the required structure; no missing files, no stray files.
 - `index.html` uses `<script type="module">` with no inline JS logic.
-- `package.json` has all `@jspsych` packages with pinned versions; `@jspsych/plugin-pavlovia` present; `vite` in dev deps.
+- `package.json` has all `@jspsych` packages with pinned versions; `vite` in dev deps. (The Pavlovia plugin is a script-tag file that arrives at Maya's stage, per the `shaharlab-jspsych-pavlovia-link` skill.)
 - `vite.config.js` sets `base: './'`.
 - `.gitignore` includes `node_modules/`, `dist/`.
 

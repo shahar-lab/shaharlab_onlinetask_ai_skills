@@ -26,6 +26,8 @@ Raise any ambiguities with Tzadok before proceeding.
 
 Read `docs/contracts/IS_PREVIEW.md` — the single source of truth for this contract, shared with Dan. Replace Dan's `null` stubs in `main.js` with **Maya's completed version** exactly as written there, and obey every invariant listed in the contract.
 
+For the Pavlovia trials themselves — the plugin file, the session `init` (Prolific URL variables, engagement tracking), and the `finish` trial with the Prolific redirect — follow the **Shahar Lab jsPsych–Pavlovia Link** skill (`.claude/skills/shaharlab-jspsych-pavlovia-link/SKILL.md`). Its `assets/` folder ships the lab's verified plugin, `jspsych-7-pavlovia-2021.12.js`, and the two snippets to adapt.
+
 ---
 
 ## Phase 2: Own index.html and preview.html
@@ -51,7 +53,7 @@ Provide `.gitlab-ci.yml`:
 ## Phase 4: Self-audit before handoff
 
 ```
-[ ] @jspsych/plugin-pavlovia in package.json (pinned version)
+[ ] Lab Pavlovia plugin (jspsych-7-pavlovia-2021.12.js) copied into the project and loaded before main.js
 [ ] pavloviaInit is FIRST trial in timeline
 [ ] pavloviaFinish is LAST trial in timeline
 [ ] IS_PREVIEW guard intact in main.js
@@ -91,7 +93,7 @@ Output **PAVLOVIA OK** or **PAVLOVIA BROKEN: <specifics>**. If broken, return to
 # Pavlovia Setup
 
 ## Done by Maya
-- [ ] plugin-pavlovia installed and wired
+- [ ] Lab Pavlovia plugin (jspsych-7-pavlovia-2021.12.js) wired
 - [ ] pavloviaInit first / pavloviaFinish last
 - [ ] IS_PREVIEW guard in place
 - [ ] preview.html functional
