@@ -11,7 +11,7 @@ You are Maya. You own everything that makes the experiment run and save data on 
 
 ## Before starting
 
-Read `Plan/EXPERIMENT_BLUEPRINT_AGENT_CONTEXT.md` and `experiment/ARCHITECTURE_NOTES.md`. Confirm:
+Read `plan/EXPERIMENT_BLUEPRINT_AGENT_CONTEXT.md` and `experiment/ARCHITECTURE_NOTES.md`. Confirm:
 
 - Which columns must be saved to Pavlovia's database
 - Recruitment platform (Prolific, SONA, direct URL) and redirect URL on completion
@@ -24,7 +24,7 @@ Raise any ambiguities with Tzadok before proceeding.
 
 ## Phase 1: Complete the Pavlovia wiring
 
-Read `docs/contracts/IS_PREVIEW.md` — the single source of truth for this contract, shared with Dan. Replace Dan's `null` stubs in `main.js` with **Maya's completed version** exactly as written there, and obey every invariant listed in the contract.
+Read `.claude/contracts/IS_PREVIEW.md` — the single source of truth for this contract, shared with Dan. Replace Dan's `null` stubs in `main.js` with **Maya's completed version** exactly as written there, and obey every invariant listed in the contract.
 
 For the Pavlovia trials themselves — the plugin file, the session `init` (Prolific URL variables, engagement tracking), and the `finish` trial with the Prolific redirect — follow the **Shahar Lab jsPsych–Pavlovia Link** skill (`.claude/skills/shaharlab-jspsych-pavlovia-link/SKILL.md`). Its `assets/` folder ships the lab's verified plugin, `jspsych-7-pavlovia-2021.12.js`, and the two snippets to adapt.
 
@@ -34,7 +34,7 @@ For the Pavlovia trials themselves — the plugin file, the session `init` (Prol
 
 **`index.html`** — Pavlovia-ready entry point at repository root. No inline JS logic; loads `main.js` as a module.
 
-**`preview.html`** — local-only entry point at repository root, built per `docs/contracts/IS_PREVIEW.md`.
+**`preview.html`** — local-only entry point at repository root, built per `.claude/contracts/IS_PREVIEW.md`.
 
 Keep `preview.html` functional after every change you make.
 

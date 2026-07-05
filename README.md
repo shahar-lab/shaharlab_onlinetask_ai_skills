@@ -1,43 +1,54 @@
 # Shahar Lab — Online Experiment Builder Template
 
-A Claude Code multi-agent template for building online psychology experiments (jsPsych 7, deployed on Pavlovia). You describe your experiment in plain language; the AI pipeline interviews you, writes a human-readable blueprint, builds the code, reviews it, and wires up Pavlovia.
+A Claude Code multi-agent template for building online psychology experiments (jsPsych 7, deployed on Pavlovia). Describe your experiment in plain language; the AI pipeline interviews you, writes a blueprint, builds the code, reviews it, and deploys it.
 
-## Setup (once per experiment)
+---
 
-1. **Clone this repo** (one copy per experiment) and open it in Claude Code:
-   ```
-   git clone <this-repo-url> my_experiment
-   cd my_experiment
-   claude
-   ```
-2. **Install prerequisites:** Node.js (LTS) and Python 3 (used only to serve local previews).
-3. **Optional but recommended — Playwright MCP** (needed for the visual auditor, Natan):
-   ```
-   claude mcp add playwright -- npx @playwright/mcp@latest
-   ```
-
-## Building your experiment
+## Project Structure
 
 ```
-/build-experiment a Stroop task with 2 blocks of 48 trials and a PHQ-9 at the end
+.
+├── .claude/                          # AI pipeline configuration (agents, skills, commands)
+├── assets/                           # Stimulus files and data for your experiment
+├── experiment/                       # The jsPsych experiment code (built by the AI)
+├── manuscript-excerpt/               # Generated method section for publication
+└── plan/                             # Experiment blueprint and design documents
 ```
 
-The pipeline will:
-1. **Interview you** (Galit) — answer one topic at a time.
-2. **Write the blueprint** (Miri) — check `Plan/EXPERIMENT_BLUEPRINT.md`; this is *your* document. Read it carefully; it is what gets built.
-3. **Review the blueprint** (Devorah), **build the code** (Dan), **review the code** (Ezra), **wire Pavlovia** (Maya).
+---
 
-Useful commands: `/pipeline-status` (where am I?), `/review-spec`, `/audit-code`, `/deploy-check`, `/shaharlab-online-experiment-manuscript-excerpt` (write your method section at the end).
+## Folder Guide
 
-## Previewing locally
+### `.claude/`
+Configuration and orchestration for the AI pipeline. Contains agents (Dan, Maya, etc.), skills, and commands. You won't edit these files directly — they drive the AI that builds your experiment. 
 
-```
-python -m http.server 8000
-```
-Then open `http://localhost:8000/preview.html`. Data is not sent to Pavlovia in preview mode; a CSV downloads at the end.
+### `assets/`
+**Your stimulus files go here.** Before starting the interview, add:
 
-## Rules of the road
+- **Images** — PNG, JPG files for visual stimuli (e.g., `face_01.png`, `stroop_red.png`)
+- **Audio** — WAV, MP3 files for auditory stimuli
+- **CSV tables** — stimulus lists, lookup tables, or data templates (e.g., `phq9_items.csv`, `word_list.csv`)
+- **JSON files** — structured stimulus data (e.g., `stimuli_set.json`)
 
-- Put your stimulus files (images, audio, CSV tables) in `experiment/assets/` before or during the interview.
-- Never delete `preview.html` or the `IS_PREVIEW` code block — the pipeline depends on them.
-- If you edit code by hand, run `/deploy-check` and `/audit-code` afterwards.
+Example: if your experiment shows pictures of faces, save them as `assets/face_001.png`, `assets/face_002.png`, etc. The AI will reference them by these paths in the experiment code.
+
+### `experiment/`
+The built jsPsych experiment code. Created and managed by the AI during the build pipeline. Contains:
+- `index.html` — entry point for Pavlovia deployment
+- `preview.html` — local preview (run the experiment without Pavlovia)
+- `src/` — JavaScript source code (timeline, trials, helpers)
+- `package.json` — JavaScript dependencies
+- Other files needed for the experiment to run
+
+### `plan/`
+Experiment design documents. The AI creates:
+- `EXPERIMENT_BLUEPRINT.md` — human-readable summary (flowchart, settings, data preview, tech stack)
+- `EXPERIMENT_BLUEPRINT_AGENT_CONTEXT.md` — detailed design record for the AI builders
+- `INTERVIEW_NOTES.md` — your answers from the planning interview
+
+**Read `EXPERIMENT_BLUEPRINT.md` carefully.** This is what the AI will build.
+
+### `manuscript-excerpt/`
+Generated publication materials. After your experiment is complete, run `/shaharlab-online-experiment-manuscript-excerpt` to generate:
+- `method_main.md` — method section for the main manuscript
+- `method_supplementary.md` — supplementary methods detail

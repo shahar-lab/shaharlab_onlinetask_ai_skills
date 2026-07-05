@@ -29,6 +29,6 @@ Experiment directory: $ARGUMENTS (default: `experiment/`)
 Steps:
 1. Read `index.html`, `preview.html`, `src/main.js` (and any timeline files), `package.json`, `.gitlab-ci.yml` (if present), and `PAVLOVIA_SETUP.md` (if present).
 2. Apply every item in your self-audit checklist and snippet check.
-3. Consult the shared contract in `docs/contracts/IS_PREVIEW.md` to verify the guard is intact and correctly completed.
+3. Consult the shared contract in `.claude/contracts/IS_PREVIEW.md` to verify the guard is intact and correctly completed.
 4. Produce the full audit report.
 5. Issue **PAVLOVIA OK** if all applicable items pass, **PAVLOVIA BROKEN: <specifics>** otherwise. If broken, list the fixes needed so Tzadok can route them to you or Dan.

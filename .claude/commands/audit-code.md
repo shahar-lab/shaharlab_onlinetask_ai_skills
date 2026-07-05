@@ -31,7 +31,7 @@ Experiment directory: $ARGUMENTS (default: `experiment/`)
 Steps:
 1. List all files in the directory tree.
 2. Read each source file (`index.html`, `preview.html`, `src/**/*.js`, `package.json`, `vite.config.js`, `.gitignore`).
-3. Read `Plan/EXPERIMENT_BLUEPRINT_AGENT_CONTEXT.md` to check the code against the blueprint.
+3. Read `plan/EXPERIMENT_BLUEPRINT_AGENT_CONTEXT.md` to check the code against the blueprint.
 4. Apply every review dimension from your agent definition.
 5. Produce the full review report in your standard output format, with BLOCKING / WARNING / READABILITY findings.
 6. Issue APPROVE if zero BLOCKING findings, REVISE otherwise.

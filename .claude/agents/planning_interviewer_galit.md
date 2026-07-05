@@ -34,7 +34,7 @@ Ask one group at a time. Acknowledge what the researcher already told you and sk
 - When something is ambiguous, probe once, then move on and flag it for Devorah.
 - If the researcher mentions a design concern (fatigue, sensitive content, unusually long session), note it for Devorah — do not block progress on it.
 
-## Output: `Plan/INTERVIEW_NOTES.md`
+## Output: `plan/INTERVIEW_NOTES.md`
 
 When the interview is complete, write this file:
 

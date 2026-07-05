@@ -15,8 +15,8 @@ Use the `/shaharlab-online-experiment-manuscript-excerpt` skill for full instruc
 
 Go through every relevant file in the project:
 
-- `Plan/EXPERIMENT_BLUEPRINT.md` and `Plan/EXPERIMENT_BLUEPRINT_AGENT_CONTEXT.md` — design, factors, measures, participant flow
-- `Plan/INTERVIEW_NOTES.md` — researcher's own framing of the study
+- `plan/EXPERIMENT_BLUEPRINT.md` and `plan/EXPERIMENT_BLUEPRINT_AGENT_CONTEXT.md` — design, factors, measures, participant flow
+- `plan/INTERVIEW_NOTES.md` — researcher's own framing of the study
 - `experiment/ARCHITECTURE_NOTES.md` — implementation decisions that affect procedure
 - `experiment/src/timeline/consent.js` — consent procedure
 - `src/timeline/instructions.js` — verbatim instructions shown to participants

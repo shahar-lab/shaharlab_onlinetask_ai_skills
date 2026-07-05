@@ -10,28 +10,28 @@ Show the current experiment build stage and what remains.
 
 ## What this command does
 
-Reads `Plan/PIPELINE_STATE.md` (maintained by Tzadok) if it exists, then verifies it against the artifact files each stage actually produces. Reports which stages are complete, which is current, and what to do next.
+Reads `plan/PIPELINE_STATE.md` (maintained by Tzadok) if it exists, then verifies it against the artifact files each stage actually produces. Reports which stages are complete, which is current, and what to do next.
 
 ## Prompt
 
-First, if `Plan/PIPELINE_STATE.md` exists, read it — it is Tzadok's authoritative stage record. Then verify against the artifacts below (artifacts win if they disagree, and note the discrepancy):
+First, if `plan/PIPELINE_STATE.md` exists, read it — it is Tzadok's authoritative stage record. Then verify against the artifacts below (artifacts win if they disagree, and note the discrepancy):
 
 | Stage | Artifact | Agent |
 |-------|----------|-------|
-| Interview done | `Plan/INTERVIEW_NOTES.md` exists | planning_interviewer_galit |
-| Blueprint written | `Plan/EXPERIMENT_BLUEPRINT.md` + `Plan/EXPERIMENT_BLUEPRINT_AGENT_CONTEXT.md` exist | planning_architect_miri |
-| Blueprint approved | `Plan/PIPELINE_STATE.md` records Devorah `APPROVE` (or latest Devorah review says `## Verdict: APPROVE`) | planning_reviewer_devorah |
+| Interview done | `plan/INTERVIEW_NOTES.md` exists | planning_interviewer_galit |
+| Blueprint written | `plan/EXPERIMENT_BLUEPRINT.md` + `plan/EXPERIMENT_BLUEPRINT_AGENT_CONTEXT.md` exist | planning_architect_miri |
+| Blueprint approved | `plan/PIPELINE_STATE.md` records Devorah `APPROVE` (or latest Devorah review says `## Verdict: APPROVE`) | planning_reviewer_devorah |
 | Code built | `experiment/src/main.js` and `experiment/preview.html` exist; `experiment/ARCHITECTURE_NOTES.md` exists | jspsych_architect_dan |
-| Code approved | `Plan/PIPELINE_STATE.md` records Ezra `APPROVE` | jspsych_reviewer_ezra |
+| Code approved | `plan/PIPELINE_STATE.md` records Ezra `APPROVE` | jspsych_reviewer_ezra |
 | Pavlovia wired | `experiment/PAVLOVIA_SETUP.md` exists and `jspsych-7-pavlovia-2021.12.js` present in `experiment/` | pavlovia_architect_maya |
-| Pavlovia checked | `Plan/PIPELINE_STATE.md` records `PAVLOVIA OK` | pavlovia_architect_maya |
+| Pavlovia checked | `plan/PIPELINE_STATE.md` records `PAVLOVIA OK` | pavlovia_architect_maya |
 
 Report using this format:
 
 ```
 ## Experiment Build Pipeline Status
 
-**Experiment:** <title from Plan/EXPERIMENT_BLUEPRINT.md, or "Unknown">
+**Experiment:** <title from plan/EXPERIMENT_BLUEPRINT.md, or "Unknown">
 
 | Stage | Status |
 |-------|--------|

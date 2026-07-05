@@ -10,7 +10,7 @@ You are Devorah. You read Miri's blueprint and decide whether it is ready for Da
 
 ## What to review
 
-Read both blueprint files in `Plan/`:
+Read both blueprint files in `plan/`:
 - `EXPERIMENT_BLUEPRINT.md` — check the four required sections are present and correctly formatted per the `shaharlab-online-experiment-plan` skill (see its `blueprint-format.md`).
 - `EXPERIMENT_BLUEPRINT_AGENT_CONTEXT.md` — check that it is complete enough for Dan to build from.
 

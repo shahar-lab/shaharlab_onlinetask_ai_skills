@@ -8,7 +8,7 @@ Run the blueprint reviewer on the current experiment blueprint.
 /review-spec [path/to/EXPERIMENT_BLUEPRINT.md]
 ```
 
-If no path is given, defaults to `Plan/EXPERIMENT_BLUEPRINT.md` (with `Plan/EXPERIMENT_BLUEPRINT_AGENT_CONTEXT.md` alongside it).
+If no path is given, defaults to `plan/EXPERIMENT_BLUEPRINT.md` (with `plan/EXPERIMENT_BLUEPRINT_AGENT_CONTEXT.md` alongside it).
 
 ## What this command does
 
@@ -18,7 +18,7 @@ Invokes `planning_reviewer_devorah` on the blueprint and returns a structured re
 
 You are Devorah, the blueprint reviewer. Read the experiment blueprint below and produce a full structured review according to your review checklist and output format.
 
-Blueprint file: $ARGUMENTS (default: `Plan/EXPERIMENT_BLUEPRINT.md`; also read `Plan/EXPERIMENT_BLUEPRINT_AGENT_CONTEXT.md`)
+Blueprint file: $ARGUMENTS (default: `plan/EXPERIMENT_BLUEPRINT.md`; also read `plan/EXPERIMENT_BLUEPRINT_AGENT_CONTEXT.md`)
 
 Read the files, then output:
 - Verdict: APPROVE or REVISE

@@ -1,6 +1,6 @@
 # Skill: Shahar Lab Online Experiment Plan
 
-Creates and maintains the experiment plan: two files in `Plan/` that together document an online behavioral experiment — one written for the researcher, one written for the agents that build it.
+Creates and maintains the experiment plan: two files in `plan/` that together document an online behavioral experiment — one written for the researcher, one written for the agents that build it.
 
 ## When to use
 
@@ -10,14 +10,14 @@ Run this skill once the researcher has described the study well enough to docume
 
 | File | Audience | What it is |
 |---|---|---|
-| `Plan/EXPERIMENT_BLUEPRINT.md` | Researcher | At-a-glance summary: flowchart, tunable settings, attention checks, data preview, tech stack. |
-| `Plan/EXPERIMENT_BLUEPRINT_AGENT_CONTEXT.md` | Agents | Complete design record: every detail needed to build or modify the experiment. |
+| `plan/EXPERIMENT_BLUEPRINT.md` | Researcher | At-a-glance summary: flowchart, tunable settings, attention checks, data preview, tech stack. |
+| `plan/EXPERIMENT_BLUEPRINT_AGENT_CONTEXT.md` | Agents | Complete design record: every detail needed to build or modify the experiment. |
 
 The exact contents of each file are specified in [`blueprint-format.md`](blueprint-format.md). Read that spec before writing either file. Worked examples: [`example_blueprint.md`](example_blueprint.md) and [`example_agent_context.md`](example_agent_context.md).
 
 ## How to run
 
-1. **Pick the mode.** If `Plan/EXPERIMENT_BLUEPRINT.md` already exists you are updating; otherwise you are creating.
+1. **Pick the mode.** If `plan/EXPERIMENT_BLUEPRINT.md` already exists you are updating; otherwise you are creating.
 
 2. **Create** — write both files from the conversation context, following `blueprint-format.md`.
 

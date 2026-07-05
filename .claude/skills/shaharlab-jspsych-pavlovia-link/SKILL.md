@@ -56,7 +56,7 @@ Adapt `assets/prolific_finish_snippet.js`, placed just before `jsPsych.run(timel
 
 Fill in the two placeholders at the top of the snippet:
 - `COMPLETION_CODE` — the code collected before wiring.
-- `ON_PAVLOVIA` — `true` for the deployed version; drive it from the environment for local runs (in pipeline projects this is the `IS_PREVIEW` guard from `docs/contracts/IS_PREVIEW.md`).
+- `ON_PAVLOVIA` — `true` for the deployed version; drive it from the environment for local runs (in pipeline projects this is the `IS_PREVIEW` guard from `.claude/contracts/IS_PREVIEW.md`).
 
 ### 5. Verify
 
