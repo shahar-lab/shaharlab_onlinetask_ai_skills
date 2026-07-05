@@ -27,7 +27,7 @@ The pipeline will:
 2. **Write the blueprint** (Miri) — check `Plan/EXPERIMENT_BLUEPRINT.md`; this is *your* document. Read it carefully; it is what gets built.
 3. **Review the blueprint** (Devorah), **build the code** (Dan), **review the code** (Ezra), **wire Pavlovia** (Maya).
 
-Useful commands: `/pipeline-status` (where am I?), `/review-spec`, `/audit-code`, `/deploy-check`, `/manuscript-method` (write your method section at the end).
+Useful commands: `/pipeline-status` (where am I?), `/review-spec`, `/audit-code`, `/deploy-check`, `/shaharlab-online-experiment-manuscript-excerpt` (write your method section at the end).
 
 ## Previewing locally
 

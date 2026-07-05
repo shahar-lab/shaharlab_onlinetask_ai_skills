@@ -60,6 +60,12 @@ When building instruction screens or consent forms, follow the **Shahar Lab jsPs
 
 ---
 
+## Window monitoring
+
+When the blueprint's Attention & Robustness Checks table marks **Leaving the window** as used, follow Part 1 of the **Shahar Lab jsPsych Window Monitoring** skill (`skills/shaharlab-jspsych-window-monitoring/SKILL.md`). It defines the listeners to attach, the per-trial `window_status` / `window_left_ms` columns, and the `attention_event` audit rows. Place the helper in `experiment/src/utils/window_monitoring.js` and initialize it once in `main.js`.
+
+---
+
 ## Coding standards
 
 - ES module syntax (`import` / `export`) throughout; no `var`.

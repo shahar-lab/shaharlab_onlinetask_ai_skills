@@ -1,7 +1,7 @@
-# Skill: Manuscript Method Section Preparation
+# Skill: Shahar Lab Online Experiment Manuscript Excerpt
 
 ## When to use
-Invoke this skill (via `/manuscript-method`) when the researcher wants to generate a publication-ready method section from a completed jsPsych experiment. This skill drives Baruch (`manuscript_editor_baruch`).
+Invoke this skill (via `/shaharlab-online-experiment-manuscript-excerpt`) when the researcher wants to generate a publication-ready method section from a completed jsPsych experiment. This skill drives Baruch (`manuscript_editor_baruch`).
 
 ---
 
@@ -26,7 +26,7 @@ Before writing a single word, Baruch must read every relevant file (see his agen
 All output goes in:
 
 ```
-manuscript_snippets/
+manuscript-excerpt/
 ├── method_main.md
 └── method_supplementary.md
 ```
@@ -151,7 +151,7 @@ Do not guess. Do not average. Flag it.
 
 When both files are written, report:
 
-> "I have placed two files in `manuscript_snippets/`:
+> "I have placed two files in `manuscript-excerpt/`:
 > - `method_main.md` — method section for the main manuscript
 > - `method_supplementary.md` — full supplementary detail
 >

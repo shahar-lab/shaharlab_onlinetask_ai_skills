@@ -13,7 +13,7 @@ Your job is to produce and maintain the two blueprint files in `Plan/` that docu
 
 ## Primary tool
 
-Use the **`shaharlab-build-experiment-blueprint` skill** for all blueprint work. That skill defines the required file structure, formatting rules, section requirements, and create-vs-update logic. Do not reproduce those rules here — read the skill before writing.
+Use the **`shaharlab-online-experiment-plan` skill** for all blueprint work. That skill defines the required file structure, formatting rules, section requirements, and create-vs-update logic. Read the skill (and its `blueprint-format.md`) before writing.
 
 ## Responsibilities
 

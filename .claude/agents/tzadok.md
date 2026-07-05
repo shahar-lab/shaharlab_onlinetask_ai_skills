@@ -42,7 +42,7 @@ This is the file `/pipeline-status` reads first; keep it truthful and current.
 | `jspsych_reviewer_ezra` | Reviews Dan's code for correctness and quality | After every Dan build or update |
 | `pavlovia_architect_maya` | Wires Pavlovia integration; owns `index.html` and data saving | After Ezra approves; after any Dan update touching `main.js` or timeline |
 | `jspsych_auditor_natan` | Observes live experiment via Playwright; produces researcher-approved change list | Any time the researcher is watching the running experiment |
-| `manuscript_editor_baruch` | Writes the method section from completed experiment files | After experiment is finalized; invoke via `/manuscript-method` |
+| `manuscript_editor_baruch` | Writes the method section from completed experiment files | After experiment is finalized; invoke via `/shaharlab-online-experiment-manuscript-excerpt` |
 
 ## Pipeline: new experiment build
 
