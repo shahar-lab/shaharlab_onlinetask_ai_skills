@@ -1,69 +1,50 @@
 {
   "permissions": {
     "allow": [
-      "Read(**)",
-      "Glob(**)",
-      "Grep(**)",
-      "Write(experiment/**)",
-      "Write(plan/**)",
-      "Write(manuscript-excerpt/**)",
-      "Write(CLAUDE.md)",
-      "Edit(experiment/**)",
-      "Edit(plan/**)",
-      "Edit(manuscript-excerpt/**)",
-      "Edit(CLAUDE.md)",
-      "mcp__playwright__browser_navigate",
-      "mcp__playwright__browser_snapshot",
-      "mcp__playwright__browser_take_screenshot",
-      "Bash(npm install)",
-      "Bash(npm run build)",
-      "Bash(npm run dev)",
-      "Bash(npm run preview)",
-      "Bash(npm run lint)",
-      "Bash(npm test)",
-      "Bash(npx vite build)",
-      "Bash(node --version)",
-      "Bash(npm --version)",
-      "Bash(python -m http.server *)",
-      "Bash(git status)",
-      "Bash(git diff)",
-      "Bash(git log *)",
-      "Bash(git add experiment/**)",
-      "Bash(git add plan/**)",
-      "Bash(git add CLAUDE.md)",
-      "Bash(git add .claude/**)",
-      "Bash(git commit *)",
-      "Bash(git push *)",
-      "Bash(git fetch *)",
-      "Bash(git checkout *)",
-      "Bash(git branch *)",
-      "Bash(ls *)"
+      "Read",
+      "Glob",
+      "Grep",
+      "Skill(update-config)",
+      "Skill(update-config:*)",
+      "Read(//d/OneDrive - Tel-Aviv University/**)",
+      "Edit(.claude/skills/**)",
+      "Edit(/.claude/skills/shaharlab-jspsych-coding-style/**)",
+      "Edit(/.claude/skills/shaharlab-jspsych-window-monitoring/**)",
+      "Edit(/.claude/skills/shaharlab-online-experiment-plan/**)",
+      "Edit(/.claude/skills/shaharlab-online-experiment-manuscript-excerpt/**)",
+      "Bash(git status *)",
+      "Bash(node --check js/config.js)",
+      "Bash(node --check js/likert.js)",
+      "Bash(node --check js/pairwise.js)",
+      "Bash(grep -v \"^\\\\./\\\\.git/\")",
+      "Bash(echo \"EXIT: $?\")",
+      "Bash(node --check js/setup.js)",
+      "Bash(node --check index.html)",
+      "Skill(run)",
+      "Skill(run:*)",
+      "Bash(command -v chromium-cli)",
+      "Bash(npx --no-install playwright --version)",
+      "Bash(node -e \"try{require.resolve\\('playwright'\\);console.log\\('playwright found'\\)}catch\\(e\\){console.log\\('no playwright'\\)}\")",
+      "Bash(npm init *)",
+      "Bash(npx playwright *)",
+      "Bash(node verify.js)",
+      "Bash(command -v npx)",
+      "Bash(cat /tmp/server.log 2>/dev/null; echo ---; ls \"js\" | head; pwd)",
+      "Read(//tmp/**)",
+      "Bash(python -m http.server 8792)",
+      "Bash(kill %1)",
+      "Bash(mkdir -p \"d:/OneDrive - Tel-Aviv University/gitlab projects/phq9_pairwise/ai_artifacts/plan\")"
     ],
     "deny": [
       "Bash(rm -rf *)",
       "Bash(git push --force *)",
       "Bash(git reset --hard *)",
-      "Bash(git clean -f *)",
-      "Bash(curl * | bash)",
-      "Bash(wget * | bash)"
-    ]
-  },
-  "env": {
-    "JSPSYCH_VERSION": "7",
-    "EXPERIMENT_ROOT": "experiment",
-    "PAVLOVIA_SERVER": "https://pavlovia.org"
-  },
-  "hooks": {
-    "PostToolUse": [
-      {
-        "matcher": "Edit|Write",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "node -e \"const f = process.env.CLAUDE_TOOL_INPUT_FILE_PATH || ''; if (/experiment[\\\\/](src[\\\\/].*\\.(js|html)|index\\.html|preview\\.html)$/.test(f)) { console.log('[Pipeline] Experiment source file edited: ' + f + '. Tzadok: check whether planning_architect_miri should update plan/EXPERIMENT_BLUEPRINT.md and whether pavlovia_architect_maya should run a snippet check.'); }\""
-          }
-        ]
-      }
+      "Bash(git clean *)",
+      "PowerShell(Remove-Item -Recurse -Force *)"
+    ],
+    "additionalDirectories": [
+      "D:\\OneDrive - Tel-Aviv University\\gitlab projects\\enthropy_grid_task_online\\.claude\\skills\\shaharlab-jspsych-pavlovia-link\\assets",
+      "d:\\OneDrive - Tel-Aviv University\\gitlab projects\\phq9_pairwise\\ai_artifacts\\plan"
     ]
   }
 }

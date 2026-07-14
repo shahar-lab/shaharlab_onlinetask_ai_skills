@@ -64,6 +64,7 @@
 | Left/right assignment | Random per trial | Which item appears on the left vs. right, drawn independently for every pair. |
 | Estimated session duration | 5 min | Shown to the participant on the Welcome screen. |
 
+
 | Trial setting | Value | What it does |
 |---|---|---|
 | Stimulus onset | 0 ms | Item (or pair) appears the moment the trial starts. |
@@ -71,6 +72,7 @@
 | RT clock start | 3000 ms | RT is measured from the moment options unlock. |
 | Response window | Until response | Trial ends on click; responding is self-paced. |
 | Inter-trial interval | 0 ms | Next trial starts immediately after the response. |
+
 
 | Additional setting | Value | What it does |
 |---|---|---|
@@ -100,29 +102,60 @@
 | PILOT01 | pairwise | 21 | | | | 6a | 8b | skip | | true | 2201 | left | 4210 |
 | PILOT01 | feedback | 68 | | It was hard to choose. | | | | | | | | ok | 0 |
 
-- `participant` — participant token assigned by Pavlovia.
-- `phase` — `likert`, `pairwise`, or `feedback`.
-- `trial` — running trial number across the whole session.
-- `item` — PHQ-9 item rated on this Likert trial, or `attn_check` for the catch item.
-- `response` — Likert label clicked, or the free-text feedback.
-- `score` — numeric Likert score, 0–3.
-- `left` / `right` — item IDs shown on each side of a pairwise trial.
-- `chosen_side` — `left`, `right`, or `skip`.
-- `chosen_item` — item ID the participant picked; empty when skipped.
-- `skipped` — `true` when the skip bar was used.
-- `rt_ms` — milliseconds from options unlocking to the click.
-- `window_status` — `ok` when the window stayed focused and visible for the whole trial; `left` when the participant left it during the trial.
-- `window_left_ms` — total milliseconds the window was left during that trial; `0` when `window_status` is `ok`.
+| Variable | Levels | Description |
+|---|---|---|
+| `participant` | free text (e.g. `PILOT01`) | Participant token assigned by Pavlovia. |
+| `phase` | `likert` / `pairwise` / `feedback` | Which phase this row belongs to. |
+| `trial` | integer, running count | Trial number across the whole session. |
+| `item` | PHQ-9 item ID, or `attn_check` | Item rated on this Likert trial, or the catch item. |
+| `response` | Likert label, or free text | Likert label clicked, or the free-text feedback. |
+| `score` | 0–3 | Numeric Likert score. |
+| `left` / `right` | PHQ-9 item ID | Item IDs shown on each side of a pairwise trial. |
+| `chosen_side` | `left` / `right` / `skip` | Side the participant picked. |
+| `chosen_item` | PHQ-9 item ID, or empty | Item ID the participant picked; empty when skipped. |
+| `skipped` | `true` / `false` | Whether the skip bar was used. |
+| `rt_ms` | integer, ms | Milliseconds from options unlocking to the click. |
+| `window_status` | `ok` / `left` | Whether the window stayed focused and visible for the whole trial. |
+| `window_left_ms` | integer, ms | Total milliseconds the window was left during that trial; `0` when `window_status` is `ok`. |
 
 ---
 
-## 5. Tech Stack
+## 5. Project Folder Structure
 
-- **jsPsych** v7.x
-- **Plugin:** `html-button-response` — Likert and pairwise trials
-- **Plugin:** `survey-text` — open-text feedback trial
-- **Pavlovia plugin:** `jsPsychPavlovia` — CSV save at session end
-- **Custom helper:** response-lock module — disables clicks for 3 s, then starts the RT clock
-- **Custom helper:** window-monitoring module — stamps `window_status` / `window_left_ms` on every trial and logs `attention_event` rows (per the `shaharlab-jspsych-window-monitoring` skill)
-- **Stimuli:** `assets/phq9.csv`, loaded at runtime; pairs generated programmatically
-- **Deployment:** Pavlovia GitLab repo; PILOTING mode before going live
+```
+/phq9_pairwise
+  ├── index.html
+  ├── /js
+  │    └── main.js
+  │    └── config.js
+  │    └── intro.js
+  │    └── items.js
+  │    └── likert.js
+  │    └── pairwise.js
+  │    └── feedback.js
+  │    └── helpers.js
+  ├── /css
+  │    └── style.css
+  ├── /assets
+  │    └── phq9.csv
+  └── /ai_artifacts
+       └── /plan
+            ├── EXPERIMENT_BLUEPRINT.md
+            └── /artifacts
+                 ├── SPECIFICATION.md
+                 └── CHANGELOG.md
+```
+
+---
+
+## 6. Tech Stack
+
+**Sources**
+- jsPsych 7.x
+- jspsych-pavlovia
+
+**jsPsych plugins**
+- `html-button-response`
+- `survey-text`
+
+

@@ -1,3 +1,8 @@
+---
+name: shaharlab-jspsych-window-monitoring
+description: The lab's behavioral attention check for online experiments — records tab switches, window blur, and fullscreen exits during a session, and summarizes completed sessions per participant. Use when building an experiment whose blueprint marks "Leaving the window" as used, or invoke as /shaharlab-jspsych-window-monitoring <path> to report on exported data.
+---
+
 # Skill: Shahar Lab jsPsych Window Monitoring
 
 Window monitoring is the lab's behavioral attention check: it detects when a participant leaves the study window (tab switch, window blur, fullscreen exit) during an online experiment. It complements the infrequency catch item (`attn_check`, "I participated in the Olympic Games of 1974.") — the item catches participants who respond without reading; window monitoring catches participants who were away from the screen.
@@ -36,7 +41,7 @@ Identify audit rows by `event_type`. The `phase` column on an audit row echoes w
 
 ### Listeners
 
-Attach once, in `main.js`, before the timeline runs:
+Attach once, in `index.html`'s inline script, before the timeline runs:
 
 - **Leave events** — `visibilitychange` (page becomes hidden), `blur` (window loses focus), `fullscreenchange` (fullscreen exited). Each firing writes one audit row.
 - **Return events** — `visibilitychange` (page visible again), `focus` (window refocused). These close the away interval described next; they update state and stay out of the data.
@@ -55,7 +60,7 @@ A fullscreen exit on its own (window still focused and visible) writes an audit 
 
 ### Where the code lives
 
-Implement as a self-contained helper module in `experiment/src/utils/` (e.g., `window_monitoring.js`), exporting an `initWindowMonitoring(jsPsych)` function that `main.js` calls once during setup.
+Implement as a self-contained helper file in `src/utils/` (e.g., `window_monitoring.js`), loaded via its own `<script>` tag in `index.html` and defining a global `initWindowMonitoring(jsPsych)` function that `index.html`'s inline script calls once during setup.
 
 ---
 

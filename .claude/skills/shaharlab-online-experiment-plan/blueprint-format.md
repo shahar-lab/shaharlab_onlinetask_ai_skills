@@ -1,12 +1,12 @@
 # Blueprint Format
 
-Exact contents of the two plan files. `EXPERIMENT_BLUEPRINT.md` is read by the researcher; `EXPERIMENT_BLUEPRINT_AGENT_CONTEXT.md` is read by the agents that build the experiment.
+Exact contents of the two plan documents. `EXPERIMENT_BLUEPRINT.md` (at `ai_artifacts/plan/`) is the researcher-facing contract; `artifacts/SPECIFICATION.md` is read by the agents that build the experiment.
 
 ---
 
 ## EXPERIMENT_BLUEPRINT.md — for the researcher
 
-Five sections, in this order. The researcher should grasp the whole experiment in one read.
+Six sections, in this order: Experiment Flow, Settings You Can Tune, Attention & Robustness Checks, What the Data Looks Like, Project Folder Structure, Tech Stack. The researcher should grasp the whole experiment in one read.
 
 ### 1. Experiment Flow
 
@@ -76,22 +76,59 @@ Data footprint: when **leaving the window** is used, every trial row carries two
 
 ### 4. What the Data Looks Like
 
-Two elements, in this order:
+Two elements, in this order — nothing else in this section:
 
 1. **An example data table.** Each row is one saved CSV row (one trial). Column headers are the actual output column names. Values are realistic (`PILOT01`, `1543`). Show 3–5 rows covering the different trial types.
-2. **A column guide.** One bullet per column: `column_name` — what it records.
+2. **A data legend table**, immediately after the data table, with columns **Variable · Levels · Description**. One row per column from the table above.
+   - **Variable** — the column name, exactly as it appears in the data table header.
+   - **Levels** — the labels a categorical variable can take (`left` / `right`, `ok` / `left`), or the range/type for a numeric or free-form variable (`0–10000`, `integer, ms since trial onset`, `free text`).
+   - **Description** — one short sentence on what the column records.
 
-### 5. Tech Stack
+### 5. Project Folder Structure
 
-One bullet per line: jsPsych version, each plugin used, the Pavlovia plugin, any custom helper, and the deployment platform.
+An ASCII directory tree of the experiment repository, showing every top-level folder and the files inside it — enough that the researcher can find any file mentioned elsewhere in the document. The tree is the entire section; no text follows it. Standard layout:
+
+```
+/my_experiment
+  ├── index.html
+  ├── /js
+  │    └── main.js
+  │    └── instructions.js
+  │    └── quiz.js
+  ├── /css
+  │    └── custom_styles.css
+  ├── /assets
+  │    └── stimuli.csv
+  └── /ai_artifacts
+       ├── /plan
+       │    ├── EXPERIMENT_BLUEPRINT.md
+       │    └── /artifacts
+       │         ├── SPECIFICATION.md
+       │         └── CHANGELOG.md
+       └── /manuscript-excerpt
+            └── method_main.md
+            └── method_supplementary.md
+```
+
+Add, rename, or drop folders to match what the experiment actually uses (e.g. `/lib` for third-party plugins like the Pavlovia plugin). Keep the tree in sync with the real repository whenever files are added, renamed, or moved.
+
+### 6. Tech Stack
+
+Bare names only, no explanations, grouped under two headings:
+
+**Sources**
+- One line per library/runtime with its version (e.g. `jsPsych 8.2.2`, `jspsych-7-pavlovia-2022.1.1`).
+
+**jsPsych plugins**
+- One line per plugin package used (e.g. `@jspsych/plugin-html-keyboard-response`).
 
 ---
 
-## EXPERIMENT_BLUEPRINT_AGENT_CONTEXT.md — for agents
+## artifacts/SPECIFICATION.md — for agents
 
-A dense, complete design record. Its test: a future agent can implement or modify the experiment from this file alone, without asking follow-up questions. When in doubt, include it.
+A dense, complete technical design record: everything too technical or detailed for the researcher-facing blueprint. Its test: a future agent can implement or modify the experiment from this file plus the blueprint alone, without asking follow-up questions. When in doubt whether a detail belongs here or in the blueprint, ask the researcher.
 
-Start with a `## Changelog` section (added at the first update — one dated line per update). Then cover, in whatever order fits the experiment:
+Cover, in whatever order fits the experiment:
 
 - Research question, hypotheses, and study rationale
 - Experimental design: type, factors, levels, IVs, DVs
@@ -104,6 +141,7 @@ Start with a `## Changelog` section (added at the first update — one dated lin
 - Exclusion criteria, attention checks, and data-quality rules
 - Sample size and recruitment notes
 - Practical constraints: platform, device, browser, fullscreen
+- Project folder structure: the same directory tree as Section 5 of the human blueprint, kept identical between the two files
 - Open questions, each marked `[NEEDS INPUT]`
 - Risks and implementation watch-outs
 - Decisions and quotes from the researcher conversation not captured elsewhere

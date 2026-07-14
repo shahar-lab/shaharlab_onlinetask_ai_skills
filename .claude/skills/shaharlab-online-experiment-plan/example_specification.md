@@ -1,11 +1,4 @@
-# Experiment Blueprint — Agent Context: PHQ-9 Pairwise Symptom Comparison
-
-## Changelog
-- 2026-07-05: Window monitoring now stamps per-trial `window_status` / `window_left_ms` columns alongside the `attention_event` audit rows.
-- 2026-07-05: Added attention & robustness checks — window-leave logging and an infrequency catch item; Phase 1 is now 12 trials (68 rows per participant).
-- 2026-07-01: Confirmed skip-bar wording with the researcher; updated Phase 2 trial-level notes.
-
----
+# Specification: PHQ-9 Pairwise Symptom Comparison
 
 ## Research Question and Rationale
 
@@ -194,6 +187,36 @@ Target population: [NEEDS INPUT — general adult community, clinical, student?]
 - Data save: Pavlovia CSV auto-save at session end; partial data risk if participant exits early — consider incremental saves if plugin supports it
 - Custom response-lock helper: implements "show stimulus at t=0, block all clicks until t=3000 ms, start RT clock at t=3000 ms"; must be custom-built
 - Custom window-monitoring helper: built per the `shaharlab-jspsych-window-monitoring` skill — `fullscreenchange` / `visibilitychange` / `blur` listeners write `attention_event` rows, focus/visibility returns close the away interval, and every trial is stamped with `window_status` / `window_left_ms` (columns listed in Data Variables)
+
+---
+
+## Project Folder Structure
+
+```
+/phq9_pairwise
+  ├── index.html
+  ├── /js
+  │    └── main.js
+  │    └── config.js
+  │    └── intro.js
+  │    └── items.js
+  │    └── likert.js
+  │    └── pairwise.js
+  │    └── feedback.js
+  │    └── helpers.js
+  ├── /css
+  │    └── style.css
+  ├── /assets
+  │    └── phq9.csv
+  └── /ai_artifacts
+       └── /plan
+            ├── EXPERIMENT_BLUEPRINT.md
+            └── /artifacts
+                 ├── SPECIFICATION.md
+                 └── CHANGELOG.md
+```
+
+Identical to Section 5 of the human blueprint. `helpers.js` holds both the response-lock module and the window-monitoring module; `config.js` holds tunable settings (trial counts, timings) separately from `main.js`'s timeline assembly. `/ai_artifacts` holds every AI-generated document for this project — currently just `plan/`; a `manuscript-excerpt/` sibling folder is added once the manuscript skill runs.
 
 ---
 
